@@ -3,6 +3,11 @@
         // An array to keep track of the number of pins knocked down on each roll
         private int[] rolls = new int[21];
         private int currentRoll = 0;
+        private readonly int _frameSize;
+
+        public Game(int frameSize) {
+            _frameSize = frameSize;
+        }
 
         // The Roll method simulates rolling a ball and knocks down a certain number of pins
         public void Roll(int pins) {
@@ -25,7 +30,7 @@
                 int score = 0;
                 int rollIndex = 0;
 
-                for (int frame = 0; frame < 10; frame++) {
+                for (int frame = 0; frame < _frameSize; frame++) {
                     // If the current frame is a strike
                     if (IsStrike(rollIndex)) {
                         // Add the total number of pins knocked down in the next two rolls to the current score

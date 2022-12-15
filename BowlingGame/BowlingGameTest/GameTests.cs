@@ -8,7 +8,7 @@ namespace BowlingGame.Tests {
 
         [TestInitialize]
         public void Setup() {
-            game = new Game();
+            game = new Game(10);
         }
 
         [TestMethod]
