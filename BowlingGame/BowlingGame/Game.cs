@@ -23,22 +23,22 @@
         public int Score {
             get {
                 int score = 0;
-                int frameIndex = 0;
+                int rollIndex = 0;
 
                 for (int frame = 0; frame < 10; frame++) {
                     // If the current frame is a strike
-                    if (IsStrike(frameIndex)) {
+                    if (IsStrike(rollIndex)) {
                         // Add the total number of pins knocked down in the next two rolls to the current score
-                        score += 10 + StrikeBonus(frameIndex);
-                        frameIndex++;
-                    } else if (IsSpare(frameIndex)) {
+                        score += 10 + StrikeBonus(rollIndex);
+                        rollIndex++;
+                    } else if (IsSpare(rollIndex)) {
                         // Add the total number of pins knocked down in the next roll to the current score
-                        score += 10 + SpareBonus(frameIndex);
-                        frameIndex += 2;
+                        score += 10 + SpareBonus(rollIndex);
+                        rollIndex += 2;
                     } else {
                         // Add the total number of pins knocked down in the current frame to the score
-                        score += SumOfBallsInFrame(frameIndex);
-                        frameIndex += 2;
+                        score += SumOfBallsInFrame(rollIndex);
+                        rollIndex += 2;
                     }
                 }
 
@@ -47,27 +47,27 @@
         }
 
         // Helper methods to check if the current frame is a strike or a spare
-        public bool IsStrike(int frameIndex) {
-            return rolls[frameIndex] == 10;
+        public bool IsStrike(int rollIndex) {
+            return rolls[rollIndex] == 10;
         }
 
-        public bool IsSpare(int frameIndex) {
-            return rolls[frameIndex] + rolls[frameIndex + 1] == 10;
+        public bool IsSpare(int rollIndex) {
+            return rolls[rollIndex] + rolls[rollIndex + 1] == 10;
         }
 
         // Helper method to calculate the bonus for a strike
-        private int StrikeBonus(int frameIndex) {
-            return rolls[frameIndex + 1] + rolls[frameIndex + 2];
+        private int StrikeBonus(int rollIndex) {
+            return rolls[rollIndex + 1] + rolls[rollIndex + 2];
         }
 
         // Helper method to calculate the bonus for a spare
-        private int SpareBonus(int frameIndex) {
-            return rolls[frameIndex + 2];
+        private int SpareBonus(int rollIndex) {
+            return rolls[rollIndex + 2];
         }
 
         // Helper method to calculate the total number of pins knocked down in a frame
-        private int SumOfBallsInFrame(int frameIndex) {
-            return rolls[frameIndex] + rolls[frameIndex + 1];
+        private int SumOfBallsInFrame(int rollIndex) {
+            return rolls[rollIndex] + rolls[rollIndex + 1];
         }
     }
 }
