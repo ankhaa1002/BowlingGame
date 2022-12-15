@@ -4,7 +4,7 @@
 
         static void Main(string[] args) {
             // Create a new game
-            var game = new Game(10);
+            var game = new Game(FRAME_COUNT);
             // Create an instance of random
             Random random = new Random();
             // Roll the ball ten times for each of the ten frames
