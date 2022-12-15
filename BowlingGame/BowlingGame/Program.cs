@@ -1,20 +1,20 @@
 ﻿namespace BowlingGame {
     class Program {
-        private const int FRAME_COUNT = 10;
+        private const int FRAME_SIZE = 10;
 
         static void Main(string[] args) {
             // Create a new game
-            var game = new Game(FRAME_COUNT);
+            var game = new Game(FRAME_SIZE);
             // Create an instance of random
             Random random = new Random();
             // Roll the ball ten times for each of the ten frames
-            for (int frame = 1; frame <= FRAME_COUNT; frame++) {
+            for (int frame = 1; frame <= FRAME_SIZE; frame++) {
                 Console.WriteLine("==========================================");
                 Console.WriteLine($"Frame #{frame}");
                 Console.WriteLine("==========================================");
 
                 // Flag for special frame
-                bool isSpecialFrame = frame == FRAME_COUNT;
+                bool isSpecialFrame = frame == FRAME_SIZE;
                 int rolls = isSpecialFrame ? 3 : 2;
                 bool hasBonusRoll = false;
                 while (rolls > 0) {
